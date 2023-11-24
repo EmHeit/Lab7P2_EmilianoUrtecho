@@ -13,7 +13,11 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
      * Creates new form DeliveryPrincipal
      */
     public DeliveryPrincipal() {
+        pack();
         initComponents();
+        
+        //panels
+        p_InicioA.setVisible(false);
     }
 
     /**
@@ -51,6 +55,8 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         b_crearAdmin = new javax.swing.JButton();
         jSeparator9 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
+        d_pantallaUsuario = new javax.swing.JDialog();
+        d_pantallaAdmin = new javax.swing.JDialog();
         p_InicioU = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -128,6 +134,7 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         b_crearUsuario.setText("Crear");
         b_crearUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         b_crearUsuario.setContentAreaFilled(false);
+        b_crearUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         p_crearCU.add(b_crearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 100, -1));
 
         jSeparator12.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -138,6 +145,12 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         b_volverU.setText("Volver");
         b_volverU.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         b_volverU.setContentAreaFilled(false);
+        b_volverU.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b_volverU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_volverUActionPerformed(evt);
+            }
+        });
         p_crearCU.add(b_volverU, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 60, -1));
 
         d_crearCuentaU.getContentPane().add(p_crearCU, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
@@ -191,6 +204,12 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         b_volverAdmin.setText("Volver");
         b_volverAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         b_volverAdmin.setContentAreaFilled(false);
+        b_volverAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b_volverAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_volverAdminActionPerformed(evt);
+            }
+        });
         p_crearCA.add(b_volverAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 60, -1));
 
         b_crearAdmin.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
@@ -198,6 +217,7 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         b_crearAdmin.setText("Crear");
         b_crearAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         b_crearAdmin.setContentAreaFilled(false);
+        b_crearAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         p_crearCA.add(b_crearAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 100, -1));
 
         jSeparator9.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -205,6 +225,28 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         p_crearCA.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 640, 10));
 
         d_crearCuentaA.getContentPane().add(p_crearCA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
+
+        javax.swing.GroupLayout d_pantallaUsuarioLayout = new javax.swing.GroupLayout(d_pantallaUsuario.getContentPane());
+        d_pantallaUsuario.getContentPane().setLayout(d_pantallaUsuarioLayout);
+        d_pantallaUsuarioLayout.setHorizontalGroup(
+            d_pantallaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        d_pantallaUsuarioLayout.setVerticalGroup(
+            d_pantallaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout d_pantallaAdminLayout = new javax.swing.GroupLayout(d_pantallaAdmin.getContentPane());
+        d_pantallaAdmin.getContentPane().setLayout(d_pantallaAdminLayout);
+        d_pantallaAdminLayout.setHorizontalGroup(
+            d_pantallaAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        d_pantallaAdminLayout.setVerticalGroup(
+            d_pantallaAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 400));
@@ -251,6 +293,7 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         b_accederU.setText("Acceder");
         b_accederU.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         b_accederU.setContentAreaFilled(false);
+        b_accederU.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         p_InicioU.add(b_accederU, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, -1, -1));
 
         b_entrarAdmin.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
@@ -258,6 +301,12 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         b_entrarAdmin.setText("Iniciar Sesion Como Admin");
         b_entrarAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         b_entrarAdmin.setContentAreaFilled(false);
+        b_entrarAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b_entrarAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_entrarAdminActionPerformed(evt);
+            }
+        });
         p_InicioU.add(b_entrarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, -1, -1));
         p_InicioU.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 520, 10));
 
@@ -266,6 +315,12 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         b_paraCrearUser.setText("Crear una Cuenta como Usuario");
         b_paraCrearUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         b_paraCrearUser.setContentAreaFilled(false);
+        b_paraCrearUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b_paraCrearUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_paraCrearUserActionPerformed(evt);
+            }
+        });
         p_InicioU.add(b_paraCrearUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, -1, -1));
 
         getContentPane().add(p_InicioU, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
@@ -308,6 +363,12 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         b_entrarUsuario.setText("Iniciar Sesion Como Usuario");
         b_entrarUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         b_entrarUsuario.setContentAreaFilled(false);
+        b_entrarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b_entrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_entrarUsuarioActionPerformed(evt);
+            }
+        });
         p_InicioA.add(b_entrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, -1, -1));
 
         jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -318,6 +379,12 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         b_paraCrearAdmin.setText("Crear una Cuenta como Admin");
         b_paraCrearAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         b_paraCrearAdmin.setContentAreaFilled(false);
+        b_paraCrearAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b_paraCrearAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_paraCrearAdminActionPerformed(evt);
+            }
+        });
         p_InicioA.add(b_paraCrearAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, -1, -1));
 
         b_accederA.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
@@ -325,12 +392,49 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         b_accederA.setText("Acceder");
         b_accederA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         b_accederA.setContentAreaFilled(false);
+        b_accederA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         p_InicioA.add(b_accederA, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, -1, -1));
 
         getContentPane().add(p_InicioA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void b_entrarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_entrarAdminActionPerformed
+        p_InicioA.setVisible(true);
+        p_InicioU.setVisible(false);
+    }//GEN-LAST:event_b_entrarAdminActionPerformed
+
+    private void b_paraCrearUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_paraCrearUserActionPerformed
+        d_crearCuentaU.pack();
+        d_crearCuentaU.setVisible(true);
+        d_crearCuentaU.setLocationRelativeTo(this);
+    }//GEN-LAST:event_b_paraCrearUserActionPerformed
+
+    private void b_entrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_entrarUsuarioActionPerformed
+        p_InicioA.setVisible(false);
+        p_InicioU.setVisible(true);        
+    }//GEN-LAST:event_b_entrarUsuarioActionPerformed
+
+    private void b_paraCrearAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_paraCrearAdminActionPerformed
+        d_crearCuentaA.pack();
+        d_crearCuentaA.setVisible(true);
+        d_crearCuentaA.setLocationRelativeTo(this);        
+    }//GEN-LAST:event_b_paraCrearAdminActionPerformed
+
+    private void b_volverUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_volverUActionPerformed
+        d_crearCuentaU.setVisible(false);
+        d_crearCuentaU.setLocationRelativeTo(null);
+        p_InicioU.setVisible(true);
+        p_InicioA.setVisible(false);        
+    }//GEN-LAST:event_b_volverUActionPerformed
+
+    private void b_volverAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_volverAdminActionPerformed
+        d_crearCuentaA.setVisible(false);
+        d_crearCuentaA.setLocationRelativeTo(null);
+        p_InicioA.setVisible(true);
+        p_InicioU.setVisible(false);        
+    }//GEN-LAST:event_b_volverAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -380,6 +484,8 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton b_volverU;
     private javax.swing.JDialog d_crearCuentaA;
     private javax.swing.JDialog d_crearCuentaU;
+    private javax.swing.JDialog d_pantallaAdmin;
+    private javax.swing.JDialog d_pantallaUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
