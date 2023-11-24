@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurantes {
@@ -13,7 +14,7 @@ public class Restaurantes {
     public Restaurantes(String nombre, String ubicacion, int saldo, List<Productos> product) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
-        this.saldo = saldo;
+        this.saldo = 0;
         this.product = product;
     }
 
@@ -58,6 +59,8 @@ public class Restaurantes {
                 + "Producto: " + product;
     }
     
-    
+    public void EliminarRestaurante(ArrayList<Restaurantes> restuarant){
+        restuarant.remove(this);
+    }
     
 }

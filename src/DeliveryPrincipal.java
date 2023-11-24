@@ -44,6 +44,7 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         }
         return false;
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -294,6 +295,11 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         tf_mostrarNombre.setForeground(new java.awt.Color(245, 245, 245));
         tf_mostrarNombre.setBorder(null);
         tf_mostrarNombre.setEnabled(false);
+        tf_mostrarNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_mostrarNombreActionPerformed(evt);
+            }
+        });
         p_deCliente.add(tf_mostrarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 22, 300, 30));
 
         tp_bienvenidoCliente.setBackground(new java.awt.Color(0, 0, 0));
@@ -338,6 +344,11 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         tf_mostrarNombre1.setForeground(new java.awt.Color(245, 245, 245));
         tf_mostrarNombre1.setBorder(null);
         tf_mostrarNombre1.setEnabled(false);
+        tf_mostrarNombre1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_mostrarNombre1ActionPerformed(evt);
+            }
+        });
         p_bienvenidoAdmin.add(tf_mostrarNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 22, 300, 30));
 
         tp_deAdmin.setBackground(new java.awt.Color(0, 0, 0));
@@ -576,18 +587,19 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         String nombreU = tf_nombreUsuarioIS.getText();
         String password = pf_passwordUsuarioIS.getText();
         if (Entrar(nombreU, password)) {
-            d_pantallaUsuario.pack();
-            d_pantallaUsuario.setVisible(true);
-            d_pantallaUsuario.setLocationRelativeTo(this);
+                d_pantallaUsuario.pack();
+                d_pantallaUsuario.setVisible(true);
+                d_pantallaUsuario.setLocationRelativeTo(this);
         }else{
             JOptionPane.showMessageDialog(this, "Nombre de Usuario o password incorrecto\n\n"
                     + "Vuelva a intentarlo");
         }
+        pf_passwordUsuarioIS.setText("");
     }//GEN-LAST:event_b_accederUActionPerformed
 
     private void b_accederAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_accederAActionPerformed
-        String nombreU = tf_nombreUsuarioIS.getText();
-        String password = pf_passwordUsuarioIS.getText();
+        String nombreU = tf_nombreAdmin.getText();
+        String password = pf_passwordAdmin.getText();
         if (Entrar(nombreU, password)) {
             d_pantallaAdmin.pack();
             d_pantallaAdmin.setVisible(true);
@@ -595,7 +607,8 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this, "Nombre de Usuario o password incorrecto\n\n"
                     + "Vuelva a intentarlo");
-        }       
+        }
+        pf_passwordAdmin.setText("");        
     }//GEN-LAST:event_b_accederAActionPerformed
 
     private void b_crearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_crearUsuarioActionPerformed
@@ -614,8 +627,7 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
                 tf_crearPassword.setText("");
                 d_crearCuentaU.setVisible(false);
                 d_crearCuentaU.setLocationRelativeTo(null);
-                int saldo = 0;
-                Usuarios u = new Usuarios (nombreO, nombreU, password, saldo);
+                Usuarios u = new Usuarios (nombreO, nombreU, password, 0);
                 user.add(u);
             }
         }
@@ -637,12 +649,29 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
                 tf_crearPasswordA.setText("");
                 d_crearCuentaA.setVisible(false);
                 d_crearCuentaA.setLocationRelativeTo(null);
-                int saldo = 0;
-                Usuarios u = new Usuarios (nombreO, nombreU, password, saldo);
+                Usuarios u = new Usuarios (nombreO, nombreU, password, 0);
                 user.add(u);                
             }
         }        
     }//GEN-LAST:event_b_crearAdminActionPerformed
+
+    private void tf_mostrarNombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_mostrarNombre1ActionPerformed
+        String nombreU = tf_nombreAdmin.getText();
+        for (int i = 0; i < user.size(); i++) {
+            if (nombreU.equals(user.get(i).getNombreU())) {
+                tf_mostrarNombre1.setText(user.get(i).getNombre());
+            }
+        }
+    }//GEN-LAST:event_tf_mostrarNombre1ActionPerformed
+
+    private void tf_mostrarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_mostrarNombreActionPerformed
+        String nombreU = tf_nombreUsuarioIS.getText();
+        for (int i = 0; i < user.size(); i++) {
+            if (nombreU.equals(user.get(i).getNombreU())) {
+                tf_mostrarNombre.setText(user.get(i).getNombre());
+            }
+        }        
+    }//GEN-LAST:event_tf_mostrarNombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -681,6 +710,8 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
 
     
     ArrayList<Usuarios> user = new ArrayList();
+    ArrayList<Productos> product = new ArrayList();
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_accederA;
     private javax.swing.JButton b_accederU;

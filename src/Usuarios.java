@@ -1,3 +1,7 @@
+
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 public class Usuarios {
     private String nombre;
     private String nombreU;
@@ -47,9 +51,15 @@ public class Usuarios {
                 + "Saldo: " + saldo;
     }
     
-    public void CrearUsuario(){
-        
+    public void ModificarUsuario(String nombreU, String password){
+        this.nombreU = nombreU;
+        this.password = password;
     }
     
-    
+    public void EliminarUsuario(ArrayList<Usuarios> usuario){
+        usuario.remove(this);
+    }
+    public int Saldo(int saldoObtenido){
+        return this.saldo += saldoObtenido;
+    }
 }
