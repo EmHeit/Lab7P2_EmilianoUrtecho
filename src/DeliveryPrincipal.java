@@ -25,18 +25,309 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        d_crearCuentaU = new javax.swing.JDialog();
+        p_crearCU = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jSeparator11 = new javax.swing.JSeparator();
+        tf_crearNombreOGU = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        tf_crearNombreUsuarioU = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        tf_crearPassword = new javax.swing.JTextField();
+        b_crearUsuario = new javax.swing.JButton();
+        jSeparator12 = new javax.swing.JSeparator();
+        b_volverU = new javax.swing.JButton();
+        d_crearCuentaA = new javax.swing.JDialog();
+        p_crearCA = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        tf_crearPasswordA = new javax.swing.JTextField();
+        tf_crearNombreOGA = new javax.swing.JTextField();
+        tf_crearNombreUsuarioA = new javax.swing.JTextField();
+        b_volverAdmin = new javax.swing.JButton();
+        b_crearAdmin = new javax.swing.JButton();
+        jSeparator9 = new javax.swing.JSeparator();
+        jSeparator10 = new javax.swing.JSeparator();
+        p_InicioU = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        tf_nombreUsuarioIS = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jSeparator3 = new javax.swing.JSeparator();
+        b_accederU = new javax.swing.JButton();
+        b_entrarAdmin = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JSeparator();
+        b_paraCrearUser = new javax.swing.JButton();
+        p_InicioA = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        tf_nombreAdmin = new javax.swing.JTextField();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
+        pf_passwordAdmin = new javax.swing.JPasswordField();
+        b_entrarUsuario = new javax.swing.JButton();
+        jSeparator8 = new javax.swing.JSeparator();
+        b_paraCrearAdmin = new javax.swing.JButton();
+        b_accederA = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        d_crearCuentaU.setMinimumSize(new java.awt.Dimension(700, 400));
+        d_crearCuentaU.setPreferredSize(new java.awt.Dimension(700, 400));
+        d_crearCuentaU.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        p_crearCU.setBackground(new java.awt.Color(255, 255, 255));
+        p_crearCU.setForeground(new java.awt.Color(0, 0, 0));
+        p_crearCU.setMinimumSize(new java.awt.Dimension(700, 400));
+        p_crearCU.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setFont(new java.awt.Font("Maiandra GD", 0, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("Crear Usuario");
+        p_crearCU.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+        p_crearCU.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 640, 10));
+
+        tf_crearNombreOGU.setBackground(new java.awt.Color(255, 255, 255));
+        tf_crearNombreOGU.setFont(new java.awt.Font("Maiandra GD", 0, 15)); // NOI18N
+        tf_crearNombreOGU.setForeground(new java.awt.Color(0, 0, 0));
+        p_crearCU.add(tf_crearNombreOGU, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 310, -1));
+
+        jLabel12.setFont(new java.awt.Font("Maiandra GD", 0, 17)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Nombre Original: ");
+        p_crearCU.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Maiandra GD", 0, 17)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("Nombre Usuario: ");
+        p_crearCU.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+
+        tf_crearNombreUsuarioU.setBackground(new java.awt.Color(255, 255, 255));
+        tf_crearNombreUsuarioU.setFont(new java.awt.Font("Maiandra GD", 0, 15)); // NOI18N
+        tf_crearNombreUsuarioU.setForeground(new java.awt.Color(0, 0, 0));
+        p_crearCU.add(tf_crearNombreUsuarioU, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 310, -1));
+
+        jLabel14.setFont(new java.awt.Font("Maiandra GD", 0, 17)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setText("Password:");
+        p_crearCU.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+
+        tf_crearPassword.setBackground(new java.awt.Color(255, 255, 255));
+        tf_crearPassword.setFont(new java.awt.Font("Maiandra GD", 0, 15)); // NOI18N
+        tf_crearPassword.setForeground(new java.awt.Color(0, 0, 0));
+        p_crearCU.add(tf_crearPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 370, -1));
+
+        b_crearUsuario.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        b_crearUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        b_crearUsuario.setText("Crear");
+        b_crearUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        b_crearUsuario.setContentAreaFilled(false);
+        p_crearCU.add(b_crearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 100, -1));
+
+        jSeparator12.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        p_crearCU.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, 20, 40));
+
+        b_volverU.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        b_volverU.setForeground(new java.awt.Color(0, 0, 0));
+        b_volverU.setText("Volver");
+        b_volverU.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        b_volverU.setContentAreaFilled(false);
+        p_crearCU.add(b_volverU, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 60, -1));
+
+        d_crearCuentaU.getContentPane().add(p_crearCU, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
+
+        d_crearCuentaA.setMinimumSize(new java.awt.Dimension(700, 400));
+        d_crearCuentaA.setPreferredSize(new java.awt.Dimension(700, 400));
+        d_crearCuentaA.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        p_crearCA.setBackground(new java.awt.Color(255, 255, 255));
+        p_crearCA.setForeground(new java.awt.Color(0, 0, 0));
+        p_crearCA.setMinimumSize(new java.awt.Dimension(700, 400));
+        p_crearCA.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setFont(new java.awt.Font("Maiandra GD", 0, 17)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Password:");
+        p_crearCA.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Maiandra GD", 0, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Crear Admin");
+        p_crearCA.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Maiandra GD", 0, 17)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Nombre Original: ");
+        p_crearCA.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Maiandra GD", 0, 17)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Nombre Usuario: ");
+        p_crearCA.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+
+        tf_crearPasswordA.setBackground(new java.awt.Color(255, 255, 255));
+        tf_crearPasswordA.setFont(new java.awt.Font("Maiandra GD", 0, 15)); // NOI18N
+        tf_crearPasswordA.setForeground(new java.awt.Color(0, 0, 0));
+        p_crearCA.add(tf_crearPasswordA, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 370, -1));
+
+        tf_crearNombreOGA.setBackground(new java.awt.Color(255, 255, 255));
+        tf_crearNombreOGA.setFont(new java.awt.Font("Maiandra GD", 0, 15)); // NOI18N
+        tf_crearNombreOGA.setForeground(new java.awt.Color(0, 0, 0));
+        p_crearCA.add(tf_crearNombreOGA, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 310, -1));
+
+        tf_crearNombreUsuarioA.setBackground(new java.awt.Color(255, 255, 255));
+        tf_crearNombreUsuarioA.setFont(new java.awt.Font("Maiandra GD", 0, 15)); // NOI18N
+        tf_crearNombreUsuarioA.setForeground(new java.awt.Color(0, 0, 0));
+        p_crearCA.add(tf_crearNombreUsuarioA, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 310, -1));
+
+        b_volverAdmin.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        b_volverAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        b_volverAdmin.setText("Volver");
+        b_volverAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        b_volverAdmin.setContentAreaFilled(false);
+        p_crearCA.add(b_volverAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 60, -1));
+
+        b_crearAdmin.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        b_crearAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        b_crearAdmin.setText("Crear");
+        b_crearAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        b_crearAdmin.setContentAreaFilled(false);
+        p_crearCA.add(b_crearAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 100, -1));
+
+        jSeparator9.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        p_crearCA.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, 20, 40));
+        p_crearCA.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 640, 10));
+
+        d_crearCuentaA.getContentPane().add(p_crearCA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(700, 400));
+        setPreferredSize(new java.awt.Dimension(700, 400));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        p_InicioU.setBackground(new java.awt.Color(255, 255, 255));
+        p_InicioU.setForeground(new java.awt.Color(0, 0, 0));
+        p_InicioU.setMinimumSize(new java.awt.Dimension(700, 400));
+        p_InicioU.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Password");
+        p_InicioU.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Maiandra GD", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Iniciar Sesion Usuario");
+        p_InicioU.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+
+        tf_nombreUsuarioIS.setBackground(new java.awt.Color(255, 255, 255));
+        tf_nombreUsuarioIS.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
+        tf_nombreUsuarioIS.setForeground(new java.awt.Color(0, 0, 0));
+        p_InicioU.add(tf_nombreUsuarioIS, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 430, -1));
+        p_InicioU.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 660, 10));
+        p_InicioU.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 520, 10));
+
+        jLabel3.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Nombre de Usuario");
+        p_InicioU.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, -1));
+
+        jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));
+        jPasswordField1.setForeground(new java.awt.Color(0, 0, 0));
+        jPasswordField1.setText("jPasswordField1");
+        p_InicioU.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 430, 30));
+
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        p_InicioU.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 20, 50));
+
+        b_accederU.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        b_accederU.setForeground(new java.awt.Color(0, 0, 0));
+        b_accederU.setText("Acceder");
+        b_accederU.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        b_accederU.setContentAreaFilled(false);
+        p_InicioU.add(b_accederU, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, -1, -1));
+
+        b_entrarAdmin.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        b_entrarAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        b_entrarAdmin.setText("Iniciar Sesion Como Admin");
+        b_entrarAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        b_entrarAdmin.setContentAreaFilled(false);
+        p_InicioU.add(b_entrarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, -1, -1));
+        p_InicioU.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 520, 10));
+
+        b_paraCrearUser.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        b_paraCrearUser.setForeground(new java.awt.Color(0, 0, 0));
+        b_paraCrearUser.setText("Crear una Cuenta como Usuario");
+        b_paraCrearUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        b_paraCrearUser.setContentAreaFilled(false);
+        p_InicioU.add(b_paraCrearUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, -1, -1));
+
+        getContentPane().add(p_InicioU, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
+
+        p_InicioA.setBackground(new java.awt.Color(255, 255, 255));
+        p_InicioA.setForeground(new java.awt.Color(0, 0, 0));
+        p_InicioA.setMinimumSize(new java.awt.Dimension(700, 400));
+        p_InicioA.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Maiandra GD", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Iniciar Sesion Admin");
+        p_InicioA.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Nombre de Usuario");
+        p_InicioA.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, -1));
+        p_InicioA.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 520, 10));
+
+        tf_nombreAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        tf_nombreAdmin.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
+        tf_nombreAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        p_InicioA.add(tf_nombreAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 430, -1));
+        p_InicioA.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 660, 10));
+
+        jLabel6.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Password");
+        p_InicioA.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, -1, -1));
+        p_InicioA.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 520, 10));
+
+        pf_passwordAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        pf_passwordAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        pf_passwordAdmin.setText("jPasswordField1");
+        p_InicioA.add(pf_passwordAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 430, 30));
+
+        b_entrarUsuario.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        b_entrarUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        b_entrarUsuario.setText("Iniciar Sesion Como Usuario");
+        b_entrarUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        b_entrarUsuario.setContentAreaFilled(false);
+        p_InicioA.add(b_entrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, -1, -1));
+
+        jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        p_InicioA.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 20, 50));
+
+        b_paraCrearAdmin.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        b_paraCrearAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        b_paraCrearAdmin.setText("Crear una Cuenta como Admin");
+        b_paraCrearAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        b_paraCrearAdmin.setContentAreaFilled(false);
+        p_InicioA.add(b_paraCrearAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, -1, -1));
+
+        b_accederA.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
+        b_accederA.setForeground(new java.awt.Color(0, 0, 0));
+        b_accederA.setText("Acceder");
+        b_accederA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        b_accederA.setContentAreaFilled(false);
+        p_InicioA.add(b_accederA, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, -1, -1));
+
+        getContentPane().add(p_InicioA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -77,5 +368,57 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton b_accederA;
+    private javax.swing.JButton b_accederU;
+    private javax.swing.JButton b_crearAdmin;
+    private javax.swing.JButton b_crearUsuario;
+    private javax.swing.JButton b_entrarAdmin;
+    private javax.swing.JButton b_entrarUsuario;
+    private javax.swing.JButton b_paraCrearAdmin;
+    private javax.swing.JButton b_paraCrearUser;
+    private javax.swing.JButton b_volverAdmin;
+    private javax.swing.JButton b_volverU;
+    private javax.swing.JDialog d_crearCuentaA;
+    private javax.swing.JDialog d_crearCuentaU;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JPanel p_InicioA;
+    private javax.swing.JPanel p_InicioU;
+    private javax.swing.JPanel p_crearCA;
+    private javax.swing.JPanel p_crearCU;
+    private javax.swing.JPasswordField pf_passwordAdmin;
+    private javax.swing.JTextField tf_crearNombreOGA;
+    private javax.swing.JTextField tf_crearNombreOGU;
+    private javax.swing.JTextField tf_crearNombreUsuarioA;
+    private javax.swing.JTextField tf_crearNombreUsuarioU;
+    private javax.swing.JTextField tf_crearPassword;
+    private javax.swing.JTextField tf_crearPasswordA;
+    private javax.swing.JTextField tf_nombreAdmin;
+    private javax.swing.JTextField tf_nombreUsuarioIS;
     // End of variables declaration//GEN-END:variables
 }
