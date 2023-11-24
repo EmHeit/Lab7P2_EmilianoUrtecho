@@ -83,20 +83,38 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         d_pantallaUsuario = new javax.swing.JDialog();
         p_deCliente = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        tf_mostrarNombre = new javax.swing.JTextField();
         tp_bienvenidoCliente = new javax.swing.JTabbedPane();
         p_nombreRestaurantes = new javax.swing.JPanel();
         p_realizarCompras = new javax.swing.JPanel();
         p_comprasRecientes = new javax.swing.JPanel();
+        tf_mostrarNombreU = new javax.swing.JTextField();
         d_pantallaAdmin = new javax.swing.JDialog();
         p_bienvenidoAdmin = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        tf_mostrarNombre1 = new javax.swing.JTextField();
         tp_deAdmin = new javax.swing.JTabbedPane();
         p_crearRestaurantes = new javax.swing.JPanel();
+        tf_crearNombreRes = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        tf_crearUbicacionRes = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        tf_crearProductosRes = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        tf_crearSaldo_noRealmente = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         p_visualizarDatos = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jt_visualizarDatos = new javax.swing.JTree();
         p_top5Res = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jt_top5Restaurantes = new javax.swing.JTree();
+        jLabel22 = new javax.swing.JLabel();
         p_top5U = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jt_top5Usuarios = new javax.swing.JTree();
+        tf_mostrarNombreA = new javax.swing.JTextField();
         p_InicioU = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -290,18 +308,6 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         jLabel15.setText("Bienvendio Cliente: ");
         p_deCliente.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
-        tf_mostrarNombre.setBackground(new java.awt.Color(0, 0, 0));
-        tf_mostrarNombre.setFont(new java.awt.Font("Maiandra GD", 0, 24)); // NOI18N
-        tf_mostrarNombre.setForeground(new java.awt.Color(245, 245, 245));
-        tf_mostrarNombre.setBorder(null);
-        tf_mostrarNombre.setEnabled(false);
-        tf_mostrarNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_mostrarNombreActionPerformed(evt);
-            }
-        });
-        p_deCliente.add(tf_mostrarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 22, 300, 30));
-
         tp_bienvenidoCliente.setBackground(new java.awt.Color(0, 0, 0));
         tp_bienvenidoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         tp_bienvenidoCliente.setForeground(new java.awt.Color(255, 255, 255));
@@ -326,6 +332,13 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
 
         p_deCliente.add(tp_bienvenidoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 700, 340));
 
+        tf_mostrarNombreU.setBackground(new java.awt.Color(0, 0, 0));
+        tf_mostrarNombreU.setFont(new java.awt.Font("Maiandra GD", 0, 24)); // NOI18N
+        tf_mostrarNombreU.setForeground(new java.awt.Color(255, 255, 255));
+        tf_mostrarNombreU.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        tf_mostrarNombreU.setEnabled(false);
+        p_deCliente.add(tf_mostrarNombreU, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 22, 280, 30));
+
         d_pantallaUsuario.getContentPane().add(p_deCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
 
         d_pantallaAdmin.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -339,18 +352,6 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         jLabel16.setText("Bienvendio Admin: ");
         p_bienvenidoAdmin.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
-        tf_mostrarNombre1.setBackground(new java.awt.Color(0, 0, 0));
-        tf_mostrarNombre1.setFont(new java.awt.Font("Maiandra GD", 0, 24)); // NOI18N
-        tf_mostrarNombre1.setForeground(new java.awt.Color(245, 245, 245));
-        tf_mostrarNombre1.setBorder(null);
-        tf_mostrarNombre1.setEnabled(false);
-        tf_mostrarNombre1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_mostrarNombre1ActionPerformed(evt);
-            }
-        });
-        p_bienvenidoAdmin.add(tf_mostrarNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 22, 300, 30));
-
         tp_deAdmin.setBackground(new java.awt.Color(0, 0, 0));
         tp_deAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         tp_deAdmin.setForeground(new java.awt.Color(255, 255, 255));
@@ -359,27 +360,113 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         p_crearRestaurantes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         p_crearRestaurantes.setForeground(new java.awt.Color(255, 255, 255));
         p_crearRestaurantes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tf_crearNombreRes.setBackground(new java.awt.Color(0, 0, 0));
+        tf_crearNombreRes.setFont(new java.awt.Font("Maiandra GD", 0, 15)); // NOI18N
+        tf_crearNombreRes.setForeground(new java.awt.Color(255, 255, 255));
+        p_crearRestaurantes.add(tf_crearNombreRes, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 240, -1));
+
+        jLabel17.setFont(new java.awt.Font("Maiandra GD", 0, 15)); // NOI18N
+        jLabel17.setText("Nombre del Restaurante: ");
+        p_crearRestaurantes.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
+        jLabel18.setFont(new java.awt.Font("Maiandra GD", 0, 15)); // NOI18N
+        jLabel18.setText("La ubicacion del Restaurante: ");
+        p_crearRestaurantes.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+
+        tf_crearUbicacionRes.setBackground(new java.awt.Color(0, 0, 0));
+        tf_crearUbicacionRes.setFont(new java.awt.Font("Maiandra GD", 0, 15)); // NOI18N
+        tf_crearUbicacionRes.setForeground(new java.awt.Color(255, 255, 255));
+        p_crearRestaurantes.add(tf_crearUbicacionRes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 210, -1));
+
+        jLabel19.setFont(new java.awt.Font("Maiandra GD", 0, 10)); // NOI18N
+        jLabel19.setText("separelas en comas.");
+        p_crearRestaurantes.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, -1, -1));
+
+        tf_crearProductosRes.setBackground(new java.awt.Color(0, 0, 0));
+        tf_crearProductosRes.setFont(new java.awt.Font("Maiandra GD", 0, 15)); // NOI18N
+        tf_crearProductosRes.setForeground(new java.awt.Color(255, 255, 255));
+        p_crearRestaurantes.add(tf_crearProductosRes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 300, -1));
+
+        jLabel20.setFont(new java.awt.Font("Maiandra GD", 0, 15)); // NOI18N
+        jLabel20.setText("Los Productos: ");
+        p_crearRestaurantes.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("Maiandra GD", 0, 15)); // NOI18N
+        jLabel21.setText("Saldo inicial:");
+        p_crearRestaurantes.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+
+        tf_crearSaldo_noRealmente.setBackground(new java.awt.Color(0, 0, 0));
+        tf_crearSaldo_noRealmente.setFont(new java.awt.Font("Maiandra GD", 0, 15)); // NOI18N
+        tf_crearSaldo_noRealmente.setForeground(new java.awt.Color(255, 255, 255));
+        tf_crearSaldo_noRealmente.setText("0");
+        tf_crearSaldo_noRealmente.setEnabled(false);
+        p_crearRestaurantes.add(tf_crearSaldo_noRealmente, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 320, -1));
+
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Crear Restaurante");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        p_crearRestaurantes.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 170, 40));
+
         tp_deAdmin.addTab("Crear Restaurante", p_crearRestaurantes);
 
         p_visualizarDatos.setBackground(new java.awt.Color(0, 0, 0));
         p_visualizarDatos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         p_visualizarDatos.setForeground(new java.awt.Color(255, 255, 255));
         p_visualizarDatos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane1.setViewportView(jt_visualizarDatos);
+
+        p_visualizarDatos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 140, 270));
+
         tp_deAdmin.addTab("Visualizar Datos", p_visualizarDatos);
 
         p_top5Res.setBackground(new java.awt.Color(0, 0, 0));
         p_top5Res.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         p_top5Res.setForeground(new java.awt.Color(255, 255, 255));
         p_top5Res.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jt_top5Restaurantes.setBackground(new java.awt.Color(0, 0, 0));
+        jt_top5Restaurantes.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        jt_top5Restaurantes.setForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setViewportView(jt_top5Restaurantes);
+
+        p_top5Res.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 220, 230));
+
+        jLabel22.setFont(new java.awt.Font("Maiandra GD", 0, 24)); // NOI18N
+        jLabel22.setText("Top 5 de los Mejores Restaurantes");
+        p_top5Res.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
+
         tp_deAdmin.addTab("Top 5 Restaurantes mas exitosos", p_top5Res);
 
         p_top5U.setBackground(new java.awt.Color(0, 0, 0));
         p_top5U.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         p_top5U.setForeground(new java.awt.Color(255, 255, 255));
         p_top5U.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel23.setFont(new java.awt.Font("Maiandra GD", 0, 24)); // NOI18N
+        jLabel23.setText("Top 5 de los Mejores Usuarios");
+        p_top5U.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+
+        jt_top5Usuarios.setBackground(new java.awt.Color(0, 0, 0));
+        jt_top5Usuarios.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        jt_top5Usuarios.setForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane3.setViewportView(jt_top5Usuarios);
+
+        p_top5U.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 220, 230));
+
         tp_deAdmin.addTab("Top 5 Usuarios con mas Compras", p_top5U);
 
         p_bienvenidoAdmin.add(tp_deAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 700, 340));
+
+        tf_mostrarNombreA.setBackground(new java.awt.Color(0, 0, 0));
+        tf_mostrarNombreA.setFont(new java.awt.Font("Maiandra GD", 0, 24)); // NOI18N
+        tf_mostrarNombreA.setForeground(new java.awt.Color(255, 255, 255));
+        tf_mostrarNombreA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        tf_mostrarNombreA.setEnabled(false);
+        p_bienvenidoAdmin.add(tf_mostrarNombreA, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 22, 280, 30));
 
         d_pantallaAdmin.getContentPane().add(p_bienvenidoAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
 
@@ -590,10 +677,16 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
                 d_pantallaUsuario.pack();
                 d_pantallaUsuario.setVisible(true);
                 d_pantallaUsuario.setLocationRelativeTo(this);
+            for (int i = 0; i < user.size(); i++) {
+                if (nombreU.equals(user.get(i).getNombreU())) {
+                    tf_mostrarNombreU.setText(user.get(i).getNombre());
+                }
+            }
         }else{
             JOptionPane.showMessageDialog(this, "Nombre de Usuario o password incorrecto\n\n"
                     + "Vuelva a intentarlo");
         }
+        tf_nombreUsuarioIS.setText("");
         pf_passwordUsuarioIS.setText("");
     }//GEN-LAST:event_b_accederUActionPerformed
 
@@ -604,10 +697,16 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
             d_pantallaAdmin.pack();
             d_pantallaAdmin.setVisible(true);
             d_pantallaAdmin.setLocationRelativeTo(this);
+            for (int i = 0; i < user.size(); i++) {
+                if (nombreU.equals(user.get(i).getNombreU())) {
+                    tf_mostrarNombreA.setText(user.get(i).getNombre());
+                }
+            }
         }else{
             JOptionPane.showMessageDialog(this, "Nombre de Usuario o password incorrecto\n\n"
                     + "Vuelva a intentarlo");
         }
+        tf_nombreAdmin.setText("");
         pf_passwordAdmin.setText("");        
     }//GEN-LAST:event_b_accederAActionPerformed
 
@@ -654,24 +753,6 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
             }
         }        
     }//GEN-LAST:event_b_crearAdminActionPerformed
-
-    private void tf_mostrarNombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_mostrarNombre1ActionPerformed
-        String nombreU = tf_nombreAdmin.getText();
-        for (int i = 0; i < user.size(); i++) {
-            if (nombreU.equals(user.get(i).getNombreU())) {
-                tf_mostrarNombre1.setText(user.get(i).getNombre());
-            }
-        }
-    }//GEN-LAST:event_tf_mostrarNombre1ActionPerformed
-
-    private void tf_mostrarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_mostrarNombreActionPerformed
-        String nombreU = tf_nombreUsuarioIS.getText();
-        for (int i = 0; i < user.size(); i++) {
-            if (nombreU.equals(user.get(i).getNombreU())) {
-                tf_mostrarNombre.setText(user.get(i).getNombre());
-            }
-        }        
-    }//GEN-LAST:event_tf_mostrarNombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -727,6 +808,7 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog d_crearCuentaU;
     private javax.swing.JDialog d_pantallaAdmin;
     private javax.swing.JDialog d_pantallaUsuario;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -735,7 +817,14 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -743,6 +832,9 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -755,6 +847,9 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JTree jt_top5Restaurantes;
+    private javax.swing.JTree jt_top5Usuarios;
+    private javax.swing.JTree jt_visualizarDatos;
     private javax.swing.JPanel p_InicioA;
     private javax.swing.JPanel p_InicioU;
     private javax.swing.JPanel p_bienvenidoAdmin;
@@ -772,12 +867,16 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
     private javax.swing.JPasswordField pf_passwordUsuarioIS;
     private javax.swing.JTextField tf_crearNombreOGA;
     private javax.swing.JTextField tf_crearNombreOGU;
+    private javax.swing.JTextField tf_crearNombreRes;
     private javax.swing.JTextField tf_crearNombreUsuarioA;
     private javax.swing.JTextField tf_crearNombreUsuarioU;
     private javax.swing.JTextField tf_crearPassword;
     private javax.swing.JTextField tf_crearPasswordA;
-    private javax.swing.JTextField tf_mostrarNombre;
-    private javax.swing.JTextField tf_mostrarNombre1;
+    private javax.swing.JTextField tf_crearProductosRes;
+    private javax.swing.JTextField tf_crearSaldo_noRealmente;
+    private javax.swing.JTextField tf_crearUbicacionRes;
+    private javax.swing.JTextField tf_mostrarNombreA;
+    private javax.swing.JTextField tf_mostrarNombreU;
     private javax.swing.JTextField tf_nombreAdmin;
     private javax.swing.JTextField tf_nombreUsuarioIS;
     private javax.swing.JTabbedPane tp_bienvenidoCliente;
