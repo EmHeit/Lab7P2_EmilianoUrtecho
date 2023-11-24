@@ -1,3 +1,7 @@
+
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -20,6 +24,26 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         p_InicioA.setVisible(false);
     }
 
+    public boolean UsuarioExiste(String usuario){
+        for (int i = 0; i < user.size(); i++) {
+            if (usuario.equals(user.get(i).getNombreU())) {
+                return true;
+            }
+        }
+        return false;
+        //Sip, es el mismo metodo que use en el laboratorio Anterior, y tal vez de los labs mas viejitos
+        
+    }
+    public boolean Entrar(String usuario, String password){
+        usuario = tf_nombreUsuarioIS.getText();
+        password = pf_passwordUsuarioIS.getText();
+        for (Usuarios usuarios : user) {
+            if (usuario.equals(usuarios.getNombreU()) && password.equals(usuarios.getPassword())) {
+                return true;
+            }
+        }
+        return false;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,7 +80,22 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         jSeparator9 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
         d_pantallaUsuario = new javax.swing.JDialog();
+        p_deCliente = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        tf_mostrarNombre = new javax.swing.JTextField();
+        tp_bienvenidoCliente = new javax.swing.JTabbedPane();
+        p_nombreRestaurantes = new javax.swing.JPanel();
+        p_realizarCompras = new javax.swing.JPanel();
+        p_comprasRecientes = new javax.swing.JPanel();
         d_pantallaAdmin = new javax.swing.JDialog();
+        p_bienvenidoAdmin = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        tf_mostrarNombre1 = new javax.swing.JTextField();
+        tp_deAdmin = new javax.swing.JTabbedPane();
+        p_crearRestaurantes = new javax.swing.JPanel();
+        p_visualizarDatos = new javax.swing.JPanel();
+        p_top5Res = new javax.swing.JPanel();
+        p_top5U = new javax.swing.JPanel();
         p_InicioU = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -64,7 +103,7 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        pf_passwordUsuarioIS = new javax.swing.JPasswordField();
         jSeparator3 = new javax.swing.JSeparator();
         b_accederU = new javax.swing.JButton();
         b_entrarAdmin = new javax.swing.JButton();
@@ -89,6 +128,7 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         d_crearCuentaU.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         p_crearCU.setBackground(new java.awt.Color(255, 255, 255));
+        p_crearCU.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         p_crearCU.setForeground(new java.awt.Color(0, 0, 0));
         p_crearCU.setMinimumSize(new java.awt.Dimension(700, 400));
         p_crearCU.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -135,6 +175,11 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         b_crearUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         b_crearUsuario.setContentAreaFilled(false);
         b_crearUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b_crearUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_crearUsuarioActionPerformed(evt);
+            }
+        });
         p_crearCU.add(b_crearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 100, -1));
 
         jSeparator12.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -160,6 +205,7 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         d_crearCuentaA.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         p_crearCA.setBackground(new java.awt.Color(255, 255, 255));
+        p_crearCA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         p_crearCA.setForeground(new java.awt.Color(0, 0, 0));
         p_crearCA.setMinimumSize(new java.awt.Dimension(700, 400));
         p_crearCA.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -218,6 +264,11 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         b_crearAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         b_crearAdmin.setContentAreaFilled(false);
         b_crearAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b_crearAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_crearAdminActionPerformed(evt);
+            }
+        });
         p_crearCA.add(b_crearAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 100, -1));
 
         jSeparator9.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -226,27 +277,100 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
 
         d_crearCuentaA.getContentPane().add(p_crearCA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
 
-        javax.swing.GroupLayout d_pantallaUsuarioLayout = new javax.swing.GroupLayout(d_pantallaUsuario.getContentPane());
-        d_pantallaUsuario.getContentPane().setLayout(d_pantallaUsuarioLayout);
-        d_pantallaUsuarioLayout.setHorizontalGroup(
-            d_pantallaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        d_pantallaUsuarioLayout.setVerticalGroup(
-            d_pantallaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        d_pantallaUsuario.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout d_pantallaAdminLayout = new javax.swing.GroupLayout(d_pantallaAdmin.getContentPane());
-        d_pantallaAdmin.getContentPane().setLayout(d_pantallaAdminLayout);
-        d_pantallaAdminLayout.setHorizontalGroup(
-            d_pantallaAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        d_pantallaAdminLayout.setVerticalGroup(
-            d_pantallaAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        p_deCliente.setBackground(new java.awt.Color(0, 0, 0));
+        p_deCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        p_deCliente.setForeground(new java.awt.Color(255, 255, 255));
+        p_deCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel15.setFont(new java.awt.Font("Maiandra GD", 0, 24)); // NOI18N
+        jLabel15.setForeground(null);
+        jLabel15.setText("Bienvendio Cliente: ");
+        p_deCliente.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+
+        tf_mostrarNombre.setBackground(new java.awt.Color(0, 0, 0));
+        tf_mostrarNombre.setFont(new java.awt.Font("Maiandra GD", 0, 24)); // NOI18N
+        tf_mostrarNombre.setForeground(new java.awt.Color(245, 245, 245));
+        tf_mostrarNombre.setBorder(null);
+        tf_mostrarNombre.setEnabled(false);
+        p_deCliente.add(tf_mostrarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 22, 300, 30));
+
+        tp_bienvenidoCliente.setBackground(new java.awt.Color(0, 0, 0));
+        tp_bienvenidoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        tp_bienvenidoCliente.setForeground(new java.awt.Color(255, 255, 255));
+
+        p_nombreRestaurantes.setBackground(new java.awt.Color(0, 0, 0));
+        p_nombreRestaurantes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        p_nombreRestaurantes.setForeground(new java.awt.Color(255, 255, 255));
+        p_nombreRestaurantes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        tp_bienvenidoCliente.addTab("Nombre de Restaurantes", p_nombreRestaurantes);
+
+        p_realizarCompras.setBackground(new java.awt.Color(0, 0, 0));
+        p_realizarCompras.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        p_realizarCompras.setForeground(new java.awt.Color(255, 255, 255));
+        p_realizarCompras.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        tp_bienvenidoCliente.addTab("Realizar Compras", p_realizarCompras);
+
+        p_comprasRecientes.setBackground(new java.awt.Color(0, 0, 0));
+        p_comprasRecientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        p_comprasRecientes.setForeground(new java.awt.Color(255, 255, 255));
+        p_comprasRecientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        tp_bienvenidoCliente.addTab("Compras Recientes", p_comprasRecientes);
+
+        p_deCliente.add(tp_bienvenidoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 700, 340));
+
+        d_pantallaUsuario.getContentPane().add(p_deCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
+
+        d_pantallaAdmin.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        p_bienvenidoAdmin.setBackground(new java.awt.Color(0, 0, 0));
+        p_bienvenidoAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        p_bienvenidoAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        p_bienvenidoAdmin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel16.setFont(new java.awt.Font("Maiandra GD", 0, 24)); // NOI18N
+        jLabel16.setText("Bienvendio Admin: ");
+        p_bienvenidoAdmin.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+
+        tf_mostrarNombre1.setBackground(new java.awt.Color(0, 0, 0));
+        tf_mostrarNombre1.setFont(new java.awt.Font("Maiandra GD", 0, 24)); // NOI18N
+        tf_mostrarNombre1.setForeground(new java.awt.Color(245, 245, 245));
+        tf_mostrarNombre1.setBorder(null);
+        tf_mostrarNombre1.setEnabled(false);
+        p_bienvenidoAdmin.add(tf_mostrarNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 22, 300, 30));
+
+        tp_deAdmin.setBackground(new java.awt.Color(0, 0, 0));
+        tp_deAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        tp_deAdmin.setForeground(new java.awt.Color(255, 255, 255));
+
+        p_crearRestaurantes.setBackground(new java.awt.Color(0, 0, 0));
+        p_crearRestaurantes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        p_crearRestaurantes.setForeground(new java.awt.Color(255, 255, 255));
+        p_crearRestaurantes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        tp_deAdmin.addTab("Crear Restaurante", p_crearRestaurantes);
+
+        p_visualizarDatos.setBackground(new java.awt.Color(0, 0, 0));
+        p_visualizarDatos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        p_visualizarDatos.setForeground(new java.awt.Color(255, 255, 255));
+        p_visualizarDatos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        tp_deAdmin.addTab("Visualizar Datos", p_visualizarDatos);
+
+        p_top5Res.setBackground(new java.awt.Color(0, 0, 0));
+        p_top5Res.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        p_top5Res.setForeground(new java.awt.Color(255, 255, 255));
+        p_top5Res.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        tp_deAdmin.addTab("Top 5 Restaurantes mas exitosos", p_top5Res);
+
+        p_top5U.setBackground(new java.awt.Color(0, 0, 0));
+        p_top5U.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        p_top5U.setForeground(new java.awt.Color(255, 255, 255));
+        p_top5U.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        tp_deAdmin.addTab("Top 5 Usuarios con mas Compras", p_top5U);
+
+        p_bienvenidoAdmin.add(tp_deAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 700, 340));
+
+        d_pantallaAdmin.getContentPane().add(p_bienvenidoAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 400));
@@ -254,6 +378,7 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         p_InicioU.setBackground(new java.awt.Color(255, 255, 255));
+        p_InicioU.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         p_InicioU.setForeground(new java.awt.Color(0, 0, 0));
         p_InicioU.setMinimumSize(new java.awt.Dimension(700, 400));
         p_InicioU.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -280,10 +405,10 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         jLabel3.setText("Nombre de Usuario");
         p_InicioU.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, -1));
 
-        jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setForeground(new java.awt.Color(0, 0, 0));
-        jPasswordField1.setText("jPasswordField1");
-        p_InicioU.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 430, 30));
+        pf_passwordUsuarioIS.setBackground(new java.awt.Color(255, 255, 255));
+        pf_passwordUsuarioIS.setForeground(new java.awt.Color(0, 0, 0));
+        pf_passwordUsuarioIS.setText("jPasswordField1");
+        p_InicioU.add(pf_passwordUsuarioIS, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 430, 30));
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
         p_InicioU.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 20, 50));
@@ -294,6 +419,11 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         b_accederU.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         b_accederU.setContentAreaFilled(false);
         b_accederU.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b_accederU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_accederUActionPerformed(evt);
+            }
+        });
         p_InicioU.add(b_accederU, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, -1, -1));
 
         b_entrarAdmin.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
@@ -326,6 +456,7 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         getContentPane().add(p_InicioU, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
 
         p_InicioA.setBackground(new java.awt.Color(255, 255, 255));
+        p_InicioA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         p_InicioA.setForeground(new java.awt.Color(0, 0, 0));
         p_InicioA.setMinimumSize(new java.awt.Dimension(700, 400));
         p_InicioA.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -393,6 +524,11 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         b_accederA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         b_accederA.setContentAreaFilled(false);
         b_accederA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b_accederA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_accederAActionPerformed(evt);
+            }
+        });
         p_InicioA.add(b_accederA, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, -1, -1));
 
         getContentPane().add(p_InicioA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
@@ -436,6 +572,78 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         p_InicioU.setVisible(false);        
     }//GEN-LAST:event_b_volverAdminActionPerformed
 
+    private void b_accederUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_accederUActionPerformed
+        String nombreU = tf_nombreUsuarioIS.getText();
+        String password = pf_passwordUsuarioIS.getText();
+        if (Entrar(nombreU, password)) {
+            d_pantallaUsuario.pack();
+            d_pantallaUsuario.setVisible(true);
+            d_pantallaUsuario.setLocationRelativeTo(this);
+        }else{
+            JOptionPane.showMessageDialog(this, "Nombre de Usuario o password incorrecto\n\n"
+                    + "Vuelva a intentarlo");
+        }
+    }//GEN-LAST:event_b_accederUActionPerformed
+
+    private void b_accederAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_accederAActionPerformed
+        String nombreU = tf_nombreUsuarioIS.getText();
+        String password = pf_passwordUsuarioIS.getText();
+        if (Entrar(nombreU, password)) {
+            d_pantallaAdmin.pack();
+            d_pantallaAdmin.setVisible(true);
+            d_pantallaAdmin.setLocationRelativeTo(this);
+        }else{
+            JOptionPane.showMessageDialog(this, "Nombre de Usuario o password incorrecto\n\n"
+                    + "Vuelva a intentarlo");
+        }       
+    }//GEN-LAST:event_b_accederAActionPerformed
+
+    private void b_crearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_crearUsuarioActionPerformed
+        String nombreO = tf_crearNombreOGU.getText();
+        String nombreU = tf_crearNombreUsuarioU.getText();
+        String password = tf_crearPassword.getText();
+        
+        if (nombreO.equals("") || nombreU.equals("") || password.equals("")) {
+            JOptionPane.showMessageDialog(this, "Llene todas las casillas porfavor");
+        }else{
+            if (UsuarioExiste(nombreU)) {
+            JOptionPane.showMessageDialog(this, "Ya existe un usuario con el nombre de "+nombreU);                
+            }else{
+                tf_crearNombreOGU.setText("");
+                tf_crearNombreUsuarioU.setText("");
+                tf_crearPassword.setText("");
+                d_crearCuentaU.setVisible(false);
+                d_crearCuentaU.setLocationRelativeTo(null);
+                int saldo = 0;
+                Usuarios u = new Usuarios (nombreO, nombreU, password, saldo);
+                user.add(u);
+            }
+        }
+    }//GEN-LAST:event_b_crearUsuarioActionPerformed
+
+    private void b_crearAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_crearAdminActionPerformed
+        String nombreO = tf_crearNombreOGA.getText();
+        String nombreU = tf_crearNombreUsuarioA.getText();
+        String password = tf_crearPasswordA.getText();
+        
+        if (nombreO.equals("") || nombreU.equals("") || password.equals("")) {
+            JOptionPane.showMessageDialog(this, "Llene todas las casillas porfavor");
+        }else{
+            if (UsuarioExiste(nombreU)) {
+            JOptionPane.showMessageDialog(this, "Ya existe un usuario con el nombre de "+nombreU);                
+            }else{
+                tf_crearNombreOGA.setText("");
+                tf_crearNombreUsuarioA.setText("");
+                tf_crearPasswordA.setText("");
+                d_crearCuentaA.setVisible(false);
+                d_crearCuentaA.setLocationRelativeTo(null);
+                int saldo = 0;
+                Usuarios u = new Usuarios (nombreO, nombreU, password, saldo);
+                user.add(u);                
+            }
+        }        
+    }//GEN-LAST:event_b_crearAdminActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -471,6 +679,8 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         });
     }
 
+    
+    ArrayList<Usuarios> user = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_accederA;
     private javax.swing.JButton b_accederU;
@@ -492,6 +702,8 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -500,7 +712,6 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -515,16 +726,30 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JPanel p_InicioA;
     private javax.swing.JPanel p_InicioU;
+    private javax.swing.JPanel p_bienvenidoAdmin;
+    private javax.swing.JPanel p_comprasRecientes;
     private javax.swing.JPanel p_crearCA;
     private javax.swing.JPanel p_crearCU;
+    private javax.swing.JPanel p_crearRestaurantes;
+    private javax.swing.JPanel p_deCliente;
+    private javax.swing.JPanel p_nombreRestaurantes;
+    private javax.swing.JPanel p_realizarCompras;
+    private javax.swing.JPanel p_top5Res;
+    private javax.swing.JPanel p_top5U;
+    private javax.swing.JPanel p_visualizarDatos;
     private javax.swing.JPasswordField pf_passwordAdmin;
+    private javax.swing.JPasswordField pf_passwordUsuarioIS;
     private javax.swing.JTextField tf_crearNombreOGA;
     private javax.swing.JTextField tf_crearNombreOGU;
     private javax.swing.JTextField tf_crearNombreUsuarioA;
     private javax.swing.JTextField tf_crearNombreUsuarioU;
     private javax.swing.JTextField tf_crearPassword;
     private javax.swing.JTextField tf_crearPasswordA;
+    private javax.swing.JTextField tf_mostrarNombre;
+    private javax.swing.JTextField tf_mostrarNombre1;
     private javax.swing.JTextField tf_nombreAdmin;
     private javax.swing.JTextField tf_nombreUsuarioIS;
+    private javax.swing.JTabbedPane tp_bienvenidoCliente;
+    private javax.swing.JTabbedPane tp_deAdmin;
     // End of variables declaration//GEN-END:variables
 }
