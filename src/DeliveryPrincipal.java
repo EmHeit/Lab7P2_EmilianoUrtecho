@@ -1,4 +1,8 @@
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -67,6 +71,28 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
             restaurant.add(restaurantes);            
         }
         return restaurant;
+    }
+    public boolean guardarArchivo(ArrayList<Restaurantes> restauran) throws IOException{
+        File archivo = null;    
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+            
+        try{
+            fw = new FileWriter(archivo, false);
+            bw = new BufferedWriter(fw);
+            for (Restaurantes restaurantes : restauran) {
+                bw.write(restaurantes.getNombre());
+                bw.write(restaurantes.getUbicacion());
+                bw.write(restaurantes.getSaldo());
+                
+            }
+            bw.flush();
+        }catch(Exception e){
+            
+        }
+        bw.close();
+        fw.close();
+        return true;
     }
     
     /**
@@ -546,7 +572,6 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
 
         pf_passwordUsuarioIS.setBackground(new java.awt.Color(255, 255, 255));
         pf_passwordUsuarioIS.setForeground(new java.awt.Color(0, 0, 0));
-        pf_passwordUsuarioIS.setText("jPasswordField1");
         p_InicioU.add(pf_passwordUsuarioIS, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 430, 30));
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -625,7 +650,6 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
 
         pf_passwordAdmin.setBackground(new java.awt.Color(255, 255, 255));
         pf_passwordAdmin.setForeground(new java.awt.Color(0, 0, 0));
-        pf_passwordAdmin.setText("jPasswordField1");
         p_InicioA.add(pf_passwordAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 430, 30));
 
         b_entrarUsuario.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
