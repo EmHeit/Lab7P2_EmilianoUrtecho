@@ -1,6 +1,10 @@
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeModel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -43,6 +47,26 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
             }
         }
         return false;
+    }
+    public List<Restaurantes> RestauranteConSepararProductos(String nombreRes, String ubicacion, String texto){
+        List<Restaurantes> restaurant = new ArrayList();
+        List<Productos> product = new ArrayList();
+        
+        if (!texto.isEmpty()) {
+            String[] separado = texto.split(", ");
+            for (String produc : separado) {
+                
+                String[] espacio = produc.split(" ");
+                String nombreProducto = espacio[0];
+                double precio = Double.parseDouble(espacio[1]);
+                Productos p = new Productos(nombreProducto, precio);
+                product.add(p);
+                
+            }
+            Restaurantes restaurantes = new Restaurantes(nombreRes, ubicacion, 0, product);
+            restaurant.add(restaurantes);            
+        }
+        return restaurant;
     }
     
     /**
@@ -98,14 +122,16 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         tf_crearUbicacionRes = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
         tf_crearProductosRes = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         tf_crearSaldo_noRealmente = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        b_crearRestaurant = new javax.swing.JButton();
         p_visualizarDatos = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_visualizarDatos = new javax.swing.JTree();
+        jLabel24 = new javax.swing.JLabel();
         p_top5Res = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jt_top5Restaurantes = new javax.swing.JTree();
@@ -380,13 +406,17 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         p_crearRestaurantes.add(tf_crearUbicacionRes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 210, -1));
 
         jLabel19.setFont(new java.awt.Font("Maiandra GD", 0, 10)); // NOI18N
-        jLabel19.setText("separelas en comas.");
-        p_crearRestaurantes.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, -1, -1));
+        jLabel19.setText("(El numero es el precio del producto)");
+        p_crearRestaurantes.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, -1, -1));
+
+        jLabel25.setFont(new java.awt.Font("Maiandra GD", 0, 10)); // NOI18N
+        jLabel25.setText("separelas en comas. Ej.) pizza 100, hamburguesa 200, arroz 300");
+        p_crearRestaurantes.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, -1));
 
         tf_crearProductosRes.setBackground(new java.awt.Color(0, 0, 0));
         tf_crearProductosRes.setFont(new java.awt.Font("Maiandra GD", 0, 15)); // NOI18N
         tf_crearProductosRes.setForeground(new java.awt.Color(255, 255, 255));
-        p_crearRestaurantes.add(tf_crearProductosRes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 300, -1));
+        p_crearRestaurantes.add(tf_crearProductosRes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 390, -1));
 
         jLabel20.setFont(new java.awt.Font("Maiandra GD", 0, 15)); // NOI18N
         jLabel20.setText("Los Productos: ");
@@ -403,12 +433,17 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         tf_crearSaldo_noRealmente.setEnabled(false);
         p_crearRestaurantes.add(tf_crearSaldo_noRealmente, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 320, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Crear Restaurante");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        p_crearRestaurantes.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 170, 40));
+        b_crearRestaurant.setBackground(new java.awt.Color(0, 0, 0));
+        b_crearRestaurant.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
+        b_crearRestaurant.setForeground(new java.awt.Color(255, 255, 255));
+        b_crearRestaurant.setText("Crear Restaurante");
+        b_crearRestaurant.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b_crearRestaurant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_crearRestaurantActionPerformed(evt);
+            }
+        });
+        p_crearRestaurantes.add(b_crearRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 170, 40));
 
         tp_deAdmin.addTab("Crear Restaurante", p_crearRestaurantes);
 
@@ -417,9 +452,15 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         p_visualizarDatos.setForeground(new java.awt.Color(255, 255, 255));
         p_visualizarDatos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jt_visualizarDatos.setBackground(new java.awt.Color(0, 0, 0));
+        jt_visualizarDatos.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         jScrollPane1.setViewportView(jt_visualizarDatos);
 
-        p_visualizarDatos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 140, 270));
+        p_visualizarDatos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 220, 220));
+
+        jLabel24.setFont(new java.awt.Font("Maiandra GD", 0, 24)); // NOI18N
+        jLabel24.setText("Compras Efectuadas de los restaurantes");
+        p_visualizarDatos.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
         tp_deAdmin.addTab("Visualizar Datos", p_visualizarDatos);
 
@@ -754,6 +795,34 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_b_crearAdminActionPerformed
 
+    private void b_crearRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_crearRestaurantActionPerformed
+        String nombreRes = tf_crearNombreRes.getText();
+        String ubication = tf_crearUbicacionRes.getText();
+        String listaP = tf_crearProductosRes.getText();
+        
+        if (nombreRes.equals("") || ubication.equals("") || listaP.equals("")) {
+            JOptionPane.showMessageDialog(this, "Llene todas las casillas porfavor");
+        }else{
+            List<Restaurantes> restau = RestauranteConSepararProductos(nombreRes, ubication, listaP);
+            
+            DefaultMutableTreeNode nomRes = new DefaultMutableTreeNode("Restaurantes: \n\n");
+            for (Restaurantes restaur : restaurant) {
+                DefaultMutableTreeNode resNodo = new DefaultMutableTreeNode("Nombre: "+restaur.getNombre()+"\n\n"
+                        + "Ubicacion: "+restaur.getUbicacion() );
+                
+                for (Productos produ : restaur.getProduct()) {
+                    DefaultMutableTreeNode productoNodo = new DefaultMutableTreeNode("Producto: "+produ.getNombreP());
+                    DefaultMutableTreeNode precioNodo = new DefaultMutableTreeNode("Precio: "+produ.getPrecio());
+                    
+                    productoNodo.add(precioNodo);
+                    resNodo.add(productoNodo);
+                }
+                nomRes.add(resNodo);
+            }
+            jt_visualizarDatos.setModel(new DefaultTreeModel(nomRes));            
+        }
+    }//GEN-LAST:event_b_crearRestaurantActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -792,11 +861,13 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
     
     ArrayList<Usuarios> user = new ArrayList();
     ArrayList<Productos> product = new ArrayList();
+    ArrayList<Restaurantes> restaurant = new ArrayList();
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_accederA;
     private javax.swing.JButton b_accederU;
     private javax.swing.JButton b_crearAdmin;
+    private javax.swing.JButton b_crearRestaurant;
     private javax.swing.JButton b_crearUsuario;
     private javax.swing.JButton b_entrarAdmin;
     private javax.swing.JButton b_entrarUsuario;
@@ -808,7 +879,6 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog d_crearCuentaU;
     private javax.swing.JDialog d_pantallaAdmin;
     private javax.swing.JDialog d_pantallaUsuario;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -825,6 +895,8 @@ public class DeliveryPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
